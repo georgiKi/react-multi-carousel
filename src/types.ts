@@ -45,6 +45,7 @@ export interface CarouselProps {
   showDots?: boolean;
   renderDotsOutside?: boolean; // show dots outside of the container for custom styling.
   renderButtonGroupOutside?: boolean; // show buttonGroup outside of the container for custom styling.
+  setItemAriaHidden: boolean; // set aria hidden attiribute to each item in the carousel.
   // Show next/previous item partially
   // partialVisible has to be used in conjunction with the responsive props, details are in documentation.
   // it shows the next set of items partially, different from centerMode as it shows both.

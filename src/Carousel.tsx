@@ -56,7 +56,8 @@ class Carousel extends React.Component<CarouselProps, CarouselInternalState> {
     shouldResetAutoplay: true,
     rewind: false,
     rtl: false,
-    rewindWithAnimation: false
+    rewindWithAnimation: false,
+    setItemAriaHidden: true
   };
   private readonly containerRef: React.RefObject<HTMLDivElement>;
   private readonly listRef: React.RefObject<HTMLUListElement>;
@@ -180,8 +181,8 @@ class Carousel extends React.Component<CarouselProps, CarouselInternalState> {
   }
 
   /*
-  We only want to set the clones on the client-side cause it relies on getting the width of the carousel items.
-  */
+      We only want to set the clones on the client-side cause it relies on getting the width of the carousel items.
+      */
   public setClones(
     slidesToShow: number,
     itemWidth?: number,
@@ -281,9 +282,9 @@ class Carousel extends React.Component<CarouselProps, CarouselInternalState> {
     setToDomDirectly?: boolean
   ): void {
     /*
-    For swipe, drag and resizing, they changed the position of the carousel, but the position are not always correct.
-    Hence, this is to make sure our items are in the correct place.
-    */
+            For swipe, drag and resizing, they changed the position of the carousel, but the position are not always correct.
+            Hence, this is to make sure our items are in the correct place.
+            */
     if (isAnimationAllowed) {
       this.isAnimationAllowed = true;
     }
@@ -375,9 +376,9 @@ class Carousel extends React.Component<CarouselProps, CarouselInternalState> {
       this.transformPlaceHolder = this.state.transform;
     }
     /* 
-     If we reach the last slide of a non-infinite carousel we can rewind the carousel
-     if opted in to autoPlay (lightweight infinite mode alternative).
-    */
+             If we reach the last slide of a non-infinite carousel we can rewind the carousel
+             if opted in to autoPlay (lightweight infinite mode alternative).
+            */
     if (this.props.autoPlay && this.props.rewind) {
       if (!this.props.infinite && isInRightEnd(this.state)) {
         const rewindBuffer =
@@ -424,10 +425,10 @@ class Carousel extends React.Component<CarouselProps, CarouselInternalState> {
       return;
     }
     /*
-    two cases:
-    1. We are not over-sliding.
-    2. We are sliding over to what we have, that means nextslides > this.props.children.length. (does not apply to the inifnite mode)
-    */
+            two cases:
+            1. We are not over-sliding.
+            2. We are sliding over to what we have, that means nextslides > this.props.children.length. (does not apply to the inifnite mode)
+            */
     const { nextSlides, nextPosition } = populateNextSlides(
       this.state,
       this.props,
